@@ -20,7 +20,6 @@ import coil.request.ImageRequest
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.ulima.ulimaPolla.model.entity.Team
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun TeamComponent(team : Team){
     println(team.crest);
