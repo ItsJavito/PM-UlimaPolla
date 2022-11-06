@@ -32,9 +32,14 @@ fun TeamComponent(team : Team){
         }
         Column(modifier = Modifier.weight(5.0f),
         horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.SpaceBetween) {
-            Text(text = team.name , fontWeight = FontWeight.Bold)
-            Text(text = "fundado" + team.founded)
+        verticalArrangement = Arrangement.SpaceBetween){
+            Text(
+                text = team.name ,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(top = 20.dp, bottom = 5.dp))
+            Text(
+                text = "fundado" + team.founded,
+                modifier = Modifier.padding(3.dp))
         }
     }
 }
