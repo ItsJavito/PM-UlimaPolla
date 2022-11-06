@@ -27,7 +27,8 @@ fun TeamComponent(team : Team){
             modifier = Modifier.weight(2.0f),
             horizontalAlignment = Alignment.CenterHorizontally
             ) {
-            TeamImage(url = team.crest)
+            TeamImage(url = team.crest,
+            )
         }
         Column(modifier = Modifier.weight(5.0f),
         horizontalAlignment = Alignment.Start,

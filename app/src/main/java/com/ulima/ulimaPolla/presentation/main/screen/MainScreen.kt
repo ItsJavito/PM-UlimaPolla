@@ -20,5 +20,7 @@ fun MainScreen(
         modifier = Modifier.fillMaxSize()
     ) {
         ListaTeams(teams = vm.listaTeams)
+        //Row fantasma - Row Muerto - Row
     }
+
 }
