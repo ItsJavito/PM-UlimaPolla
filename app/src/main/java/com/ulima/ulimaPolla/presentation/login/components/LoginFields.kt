@@ -1,17 +1,15 @@
 package com.ulima.ulimaPolla.presentation.login.components
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Home
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Green
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,38 +27,67 @@ fun LoginFields (
         verticalArrangement = Arrangement.SpaceBetween
     )
     {
+        //Columna fantasma - Hijo Fantasma - Hijo 0
+        Column(){}
         //Primer hijo
+        Icon(Icons.Rounded.Home,contentDescription = "",
+        modifier = Modifier.size(size = 100.dp)
+            .padding(top = 30.dp))
+        //Segundo hijo
         Text(text = "Polla Ulima",
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(20.dp),
-            fontSize = 25.sp);
-        //Segundo Hijo
+            fontSize = 25.sp)
+        //Tercer Hijo
         Column(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
         )
         {
-            Text(text = "Ingrese su código:",
-                textAlign = TextAlign.Start,
-                modifier = Modifier.padding(10.dp),
+            Text(text = "2019264 \n",
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(0.dp),
                 fontSize = 20.sp)
-            OutlinedTextField(modifier = Modifier.fillMaxWidth()
-                .padding(start = 10.dp, top = 0.dp, end = 10.dp, bottom = 0.dp),
-                value = name,
-                onValueChange = onNameChange,
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = Green,
-                    unfocusedBorderColor = Color.Gray))
+            Text(text = "20191425 \n",
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(0.dp),
+                fontSize = 20.sp)
+            Text(text = "20191923",
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(bottom = 20.dp),
+                fontSize = 20.sp)
         }
-        //Tercer Hijo
-        Button(
+        //Cuarto hijo
+        OutlinedTextField(modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 50.dp, top = 0.dp, end = 50.dp, bottom = 0.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            value = name,
+            onValueChange = onNameChange,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color.Green,
+                unfocusedBorderColor = Color.Gray))
+        //Quinto Hijo
+        Column(
             modifier = Modifier.fillMaxWidth()
-                .padding(15.dp),
-            onClick = {
-            if(name.trim().isNotBlank()){
-                onLoginClick(name)
+        ) {}
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Button(
+                modifier =Modifier
+                    .padding(15.dp),
+                onClick = {
+                    if(name.trim().isNotBlank()){
+                        onLoginClick(name)
+                    }
+                }) {
+                Text(text = "Ingresar")
             }
-        }) {
-            Text(text = "Login")
         }
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {}
     }
 }
