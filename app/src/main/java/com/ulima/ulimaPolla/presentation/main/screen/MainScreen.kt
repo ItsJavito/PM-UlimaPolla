@@ -1,7 +1,10 @@
 package com.ulima.ulimaPolla.presentation.main.screen
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import com.ulima.ulimaPolla.presentation.main.components.ListaTeams
@@ -15,5 +18,9 @@ fun MainScreen(
     LaunchedEffect(key1 = true){
         vm.getTeams()
     }
-    ListaTeams(teams = vm.listaTeams)
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        ListaTeams(teams = vm.listaTeams)
+    }
 }

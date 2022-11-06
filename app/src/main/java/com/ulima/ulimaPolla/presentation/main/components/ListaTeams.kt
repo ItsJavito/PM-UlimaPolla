@@ -12,7 +12,7 @@ fun ListaTeams(
 ){
     LazyColumn{
         items(teams){
-            team -> Text(text = team.name)
+            team -> TeamComponent(team = team)
         }
     }
 }
