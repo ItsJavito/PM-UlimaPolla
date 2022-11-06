@@ -1,5 +1,7 @@
 package com.ulima.ulimaPolla.model.remote
 
+import com.ulima.ulimaPolla.model.entity.ConsultaEquipos
+import com.ulima.ulimaPolla.model.entity.ConsultaMatches
 import com.ulima.ulimaPolla.model.entity.Match
 import com.ulima.ulimaPolla.model.entity.Team
 import retrofit2.Retrofit
@@ -27,14 +29,12 @@ class HTTPManager {
             }
     }
 
-    fun getTeams() : List<Team>? {
-        val listaTeams = footballService.getTeams().execute().body()
-        return listaTeams;
+    fun getTeams() : ConsultaEquipos? {
+        return footballService.getTeams().execute().body();
     }
 
-    fun getMatches() : List<Match>? {
-        val listaMatch = footballService.getMatches().execute().body();
-        return listaMatch;
+    fun getMatches() : ConsultaMatches? {
+        return footballService.getMatches().execute().body();
     }
 
     fun getTeam(id : Int) : Team? {
