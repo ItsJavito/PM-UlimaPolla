@@ -6,10 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.ViewModel
 import com.ulima.ulimaPolla.presentation.main.components.ListaTeams
 import com.ulima.ulimaPolla.presentation.main.viewmodels.MainViewModel
-import com.ulima.ulimaPolla.presentation.main.viewmodels.MainViewModelFactory
 
 @Composable
 fun MainScreen(
