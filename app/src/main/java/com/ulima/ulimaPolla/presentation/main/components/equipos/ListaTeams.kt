@@ -12,7 +12,7 @@ import com.ulima.ulimaPolla.model.entity.Team
 fun ListaTeams(
     teams : List<Team>
 ){
-    LazyColumn(modifier = Modifier.padding(bottom = 70.dp)){
+    LazyColumn(modifier = Modifier.padding(bottom = 100.dp)){
         items(teams){
             team -> TeamComponent(team = team)
         }
