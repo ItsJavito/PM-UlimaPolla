@@ -40,7 +40,7 @@ class HTTPManager {
         return footballService.getTeam(id).execute().body();
     }
 
-    fun postPolla(user : Int , idPartido : Int, ganador : Int) : PollaResponse? {
+    fun postPolla(user : String , idPartido : String, ganador : String) : PollaResponse? {
         return googleService.postPolla(user, idPartido , ganador).execute().body();
     }
 }

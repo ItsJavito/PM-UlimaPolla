@@ -6,13 +6,12 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -20,10 +19,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ulima.ulimaPolla.model.entity.Match
+import com.ulima.ulimaPolla.presentation.main.viewmodels.MainViewModel
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun MatchComponent(match : Match){
+fun MatchComponent(match : Match , estado : MutableState<Int> ){
+    val vm = MainViewModel(LocalContext.current);
     val keyboardController = LocalSoftwareKeyboardController.current
     var apuesta = remember {
         mutableStateOf("")
@@ -50,6 +51,11 @@ fun MatchComponent(match : Match){
                 keyboardActions = KeyboardActions(
                     onDone = {keyboardController?.hide()})
             )
+        }
+    }
+    if(estado.value == 1 && apuesta.value != ""){
+        LaunchedEffect(key1 = true){
+            vm.postPolla(MainViewModel.user , match.id.toString() , apuesta.value)
         }
     }
 }

@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -22,6 +24,9 @@ import com.ulima.ulimaPolla.presentation.main.viewmodels.MainViewModel
 fun MatchesScreen(
     vm : MainViewModel = MainViewModel(LocalContext.current)
 ){
+    var estado = remember{
+        mutableStateOf(0)
+    }
     LaunchedEffect(key1 = true){
         vm.getMatches()
     }
@@ -49,11 +54,13 @@ fun MatchesScreen(
                     .align(Alignment.CenterVertically)
                     .weight(2f)
                     .padding(bottom = 10.dp)
-                    .clickable {  }
+                    .clickable {
+                        estado.value = 1;
+                    }
             )
 
         }
-        ListaMatches(matches = vm.listaMatches)
+        ListaMatches(matches = vm.listaMatches , estado = estado)
         //Row fantasma - Row Muerto - Row
     }
 
