@@ -1,25 +1,35 @@
 package com.ulima.ulimaPolla.presentation.login.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+
+
+
+
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LoginFields (
     name: String,
     onNameChange: (String) -> Unit,
     onLoginClick: (String) -> Unit
 ){
+    val keyboardController = LocalSoftwareKeyboardController.current
 //Padre
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -61,7 +71,10 @@ fun LoginFields (
         OutlinedTextField(modifier = Modifier
             .fillMaxWidth()
             .padding(start = 50.dp, top = 0.dp, end = 50.dp, bottom = 0.dp),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number,
+            imeAction = ImeAction.Done),
+            keyboardActions = KeyboardActions(
+                onDone = {keyboardController?.hide()}),
             value = name,
             onValueChange = onNameChange,
             colors = TextFieldDefaults.outlinedTextFieldColors(
