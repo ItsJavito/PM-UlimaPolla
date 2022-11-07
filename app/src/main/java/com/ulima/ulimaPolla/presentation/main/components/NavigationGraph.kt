@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.ulima.ulimaPolla.presentation.login.screen.PollaScreen
+import com.ulima.ulimaPolla.presentation.main.screen.DetalleScreen
 
 import com.ulima.ulimaPolla.presentation.main.screen.MainScreen
 @Composable
@@ -23,7 +24,9 @@ fun NavigationGraph(
             PollaScreen()
         }
         composable("equipo/{index}"){
-
+            backStackEntry ->
+            val id = backStackEntry.arguments?.getString("index")!!;
+            DetalleScreen(teamId = Integer.parseInt(id))
         }
     }
 }

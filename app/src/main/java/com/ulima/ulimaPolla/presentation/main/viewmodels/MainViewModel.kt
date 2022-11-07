@@ -1,11 +1,13 @@
 package com.ulima.ulimaPolla.presentation.main.viewmodels
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
 import com.ulima.ulimaPolla.model.entity.Match
 import com.ulima.ulimaPolla.model.entity.Team
 import com.ulima.ulimaPolla.model.remote.HTTPManager
@@ -19,7 +21,11 @@ class MainViewModel(
 ) : ViewModel() {
     val listaTeams = mutableStateListOf<Team>()
     val listaMatches = mutableStateListOf<Match>()
-    val team = mutableStateOf<Team>(Team(0 , "", "" , 0 , "", "" , "" , ""));
+    val team = mutableStateOf(Team(0 , "", "" , 0 , "", "" , "" , ""));
+    companion object{
+        @SuppressLint("StaticFieldLeak")
+        lateinit var navController: NavController
+    }
     fun getTeams(){
         viewModelScope.launch {
             //llamamos a la consulta por retrofit
@@ -44,6 +50,7 @@ class MainViewModel(
             team.value =  withContext(Dispatchers.IO){
                 HTTPManager.instance.getTeam(id)
             }!!
+            println(team)
         }
     }
 }
