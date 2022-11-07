@@ -6,12 +6,14 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.ulima.ulimaPolla.presentation.login.components.NavigationGraph
 import com.ulima.ulimaPolla.presentation.main.components.BottomScaffold
+import com.ulima.ulimaPolla.presentation.main.viewmodels.MainViewModel
 
 @Composable
 fun Navegacion(
     codigo : String?
 ){
     val navController = rememberNavController()
+    MainViewModel.navController = navController;
     val scaffoldState = rememberScaffoldState()
 
     Scaffold(
