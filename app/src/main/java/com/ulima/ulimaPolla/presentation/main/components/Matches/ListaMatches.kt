@@ -25,5 +25,8 @@ fun ListaMatches(
         }.forEach {
             MatchComponent(match = it, estado = estado)
         }
+        if(estado.value == 1){
+            estado.value = 0
+        }
     }
 }

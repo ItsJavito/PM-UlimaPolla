@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ulima.ulimaPolla.model.entity.Match
 import com.ulima.ulimaPolla.presentation.main.viewmodels.MainViewModel
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
