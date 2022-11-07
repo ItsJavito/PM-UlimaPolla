@@ -1,21 +1,20 @@
 package com.ulima.ulimaPolla.model.remote
 
-import com.ulima.ulimaPolla.model.entity.ConsultaEquipos
-import com.ulima.ulimaPolla.model.entity.ConsultaMatches
-import com.ulima.ulimaPolla.model.entity.Match
-import com.ulima.ulimaPolla.model.entity.Team
+import com.ulima.ulimaPolla.model.entity.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class HTTPManager {
-    private var footballService : FootballService
+    private var footballService : FootballService;
+    private var googleService : GoogleService;
 
     init {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.football-data.org")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        footballService = retrofit.create(FootballService::class.java)
+        footballService = retrofit.create(FootballService::class.java);
+        googleService = retrofit.create(GoogleService::class.java)
     }
     //singleton
     companion object{
@@ -39,5 +38,9 @@ class HTTPManager {
 
     fun getTeam(id : Int) : Team? {
         return footballService.getTeam(id).execute().body();
+    }
+
+    fun postPolla(user : Int , idPartido : Int, ganador : Int) : PollaResponse? {
+        return googleService.postPolla(user, idPartido , ganador).execute().body();
     }
 }
