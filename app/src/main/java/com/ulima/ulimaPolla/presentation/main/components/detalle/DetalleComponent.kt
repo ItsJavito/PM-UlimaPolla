@@ -1,6 +1,8 @@
 package com.ulima.ulimaPolla.presentation.main.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -21,15 +23,16 @@ fun DetalleComponent(stateTeam : MutableState<Team>){
     val start = 30.dp;
     val tamFont = 20.sp;
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
     ) {
-
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(80.dp)
-                .padding(top=20.dp)
+                .padding(top = 20.dp)
         ){
             Text(
                 text = team.name,
@@ -41,7 +44,9 @@ fun DetalleComponent(stateTeam : MutableState<Team>){
         if(team.crest.isNotEmpty()){
             TeamImage(url = team.crest, width = 500.dp , height = 300.dp)
         }
-        Row(modifier = Modifier.padding(bottom = 20.dp)) {}
+        //Row Fantasma
+        Row(modifier = Modifier
+            .padding(bottom = 10.dp) ){}
 
             //Direccion
         Text(text = "Dirección" ,
@@ -74,7 +79,7 @@ fun DetalleComponent(stateTeam : MutableState<Team>){
             modifier = Modifier.padding(start = start, bottom = bottom1),
             fontSize = tamFont)
         Text(text = evaluarVariable(team.venue , "No tiene estadio"),
-            modifier = Modifier.padding(start = start,bottom = bottom2))
+            modifier = Modifier.padding(start = start,bottom = 120.dp))
 
     }
 }
