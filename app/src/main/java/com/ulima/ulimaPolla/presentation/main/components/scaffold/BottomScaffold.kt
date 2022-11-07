@@ -53,7 +53,7 @@ fun BottomScaffold(
                 .fillMaxHeight()
                 .padding(0.dp)
                 .clickable {
-                    navController.navigate("PollaScreen")
+                    navController.navigate("matches")
                 }
                 .border(1.dp, Color.Cyan)
         ){
