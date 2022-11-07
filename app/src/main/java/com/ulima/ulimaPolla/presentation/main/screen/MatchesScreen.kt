@@ -44,7 +44,7 @@ fun MatchesScreen(
             )
             Image(
                 painterResource(R.drawable.save_floppy_disk_diskette_512),
-                contentDescription = "estrella" ,
+                contentDescription = "Diskette" ,
                 Modifier.size(size = 40.dp)
                     .align(Alignment.CenterVertically)
                     .weight(2f)

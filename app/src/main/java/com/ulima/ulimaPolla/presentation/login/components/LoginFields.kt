@@ -1,22 +1,23 @@
 package com.ulima.ulimaPolla.presentation.login.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ulima.ulimaPolla.R
 
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -37,9 +38,12 @@ fun LoginFields (
         //Columna fantasma - Hijo Fantasma - Hijo 0
         Column(){}
         //Primer hijo
-        Icon(Icons.Rounded.Home,contentDescription = "",
-        modifier = Modifier.size(size = 100.dp)
-            .padding(top = 30.dp))
+        Image(
+            painterResource(R.drawable.polla),
+            contentDescription = "polla" ,
+            Modifier.size(size = 100.dp)
+                .padding(top = 30.dp)
+        )
         //Segundo hijo
         Text(text = "Polla Ulima",
             textAlign = TextAlign.Center,
