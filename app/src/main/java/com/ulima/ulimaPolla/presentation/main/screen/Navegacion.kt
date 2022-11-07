@@ -5,7 +5,7 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.ulima.ulimaPolla.presentation.login.components.NavigationGraph
-import com.ulima.ulimaPolla.presentation.main.components.BottomScaffold
+import com.ulima.ulimaPolla.presentation.main.components.scaffold.BottomScaffold
 import com.ulima.ulimaPolla.presentation.main.viewmodels.MainViewModel
 
 @Composable

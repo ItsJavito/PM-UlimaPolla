@@ -1,4 +1,4 @@
-package com.ulima.ulimaPolla.presentation.main.components
+package com.ulima.ulimaPolla.presentation.main.components.scaffold
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
