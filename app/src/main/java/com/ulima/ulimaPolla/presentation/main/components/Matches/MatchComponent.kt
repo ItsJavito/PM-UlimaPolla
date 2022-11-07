@@ -43,7 +43,7 @@ fun MatchComponent(match : Match){
         Column(modifier = Modifier.weight(2.0f)) {
             OutlinedTextField(value = apuesta.value ,
                 modifier = Modifier.padding(10.dp),
-                onValueChange = { apuesta.value = it },
+                onValueChange = { if(it == "0" || it == "1" || it == "2" || it == "") apuesta.value = it },
                 label = {Text("Apuesta")},
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number,
                 imeAction = ImeAction.Done),
