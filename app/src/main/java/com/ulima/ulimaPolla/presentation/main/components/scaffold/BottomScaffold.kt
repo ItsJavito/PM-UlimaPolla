@@ -25,12 +25,11 @@ fun BottomScaffold(
     }
     Row(
         modifier = Modifier.fillMaxWidth()
-            .height(70.dp)
-            .background(color = Color.Black),
+            .height(100.dp)
+            .background(Color.LightGray),
     ) {
         //Box 1
         Box(
-
             contentAlignment = Alignment.Center,
             modifier = Modifier.weight(1f)
                 .fillMaxHeight()
@@ -38,7 +37,7 @@ fun BottomScaffold(
                 .clickable {
                     navController.navigate("ListaEquipos");
                 }
-                .border(1.dp, Color.Cyan)
+                .border(1.dp, Color.DarkGray)
         ){
             Text(
                 text = "Equipos",
@@ -55,7 +54,7 @@ fun BottomScaffold(
                 .clickable {
                     navController.navigate("PollaScreen")
                 }
-                .border(1.dp, Color.Cyan)
+                .border(1.dp, Color.DarkGray)
         ){
             Text(
                 text = "Polla",
