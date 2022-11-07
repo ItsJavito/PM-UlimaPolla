@@ -48,7 +48,7 @@ fun DetalleComponent(stateTeam : MutableState<Team>){
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = start, bottom = bottom1),
             fontSize = tamFont)
-        Text(text = team.address,
+        Text(text = evaluarVariable(team.address, "No tiene dirección XD"),
             modifier = Modifier.padding(start = start ,bottom = bottom2))
 
             //Sitio web
@@ -65,7 +65,7 @@ fun DetalleComponent(stateTeam : MutableState<Team>){
             modifier = Modifier.padding(start = start, bottom = bottom1),
             fontSize = tamFont)
 
-        Text(text = team.clubColors,
+        Text(text = evaluarVariable(team.clubColors  , "No tiene color"),
             modifier = Modifier.padding(start = start,bottom = bottom2))
 
             //Estadio

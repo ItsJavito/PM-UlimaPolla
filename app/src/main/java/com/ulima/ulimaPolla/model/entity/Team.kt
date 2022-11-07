@@ -5,8 +5,8 @@ data class Team(
     val name: String,
     val crest: String,      //link imagen
     val founded: Int,       //fecha de fundacion
-    val address: String,    //direccion
-    val clubColors: String, // colores de club
+    val address: String?,    //direccion
+    val clubColors: String?, // colores de club
     val website: String?,    // sitio web
     val venue: String?       // estadio
 )

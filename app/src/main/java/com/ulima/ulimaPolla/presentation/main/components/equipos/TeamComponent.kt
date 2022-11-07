@@ -40,7 +40,7 @@ fun TeamComponent(team : Team){
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 20.dp, bottom = 5.dp))
             Text(
-                text = "fundado" + team.founded,
+                text = "fundado en el año " + team.founded,
                 modifier = Modifier.padding(3.dp))
         }
     }
