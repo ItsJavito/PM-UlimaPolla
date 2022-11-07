@@ -12,7 +12,7 @@ import com.ulima.ulimaPolla.model.entity.Match
 fun ListaMatches(
     matches: List<Match>
 ){
-    LazyColumn(modifier = Modifier.padding(bottom = 70.dp)){
+    LazyColumn(modifier = Modifier.padding(bottom = 100.dp)){
         items(matches){
                 match -> MatchComponent(match = match)
         }

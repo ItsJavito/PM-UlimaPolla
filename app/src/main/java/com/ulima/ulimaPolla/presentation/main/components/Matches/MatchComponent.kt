@@ -33,8 +33,10 @@ fun MatchComponent(match : Match){
             .border(2.dp, color = Color.Black)
             .height(100.dp),
     ) {
-        Box(contentAlignment = Alignment.Center,
-            modifier = Modifier.weight(4.0f),)
+        Column(modifier = Modifier.weight(4.0f)
+            .fillMaxHeight(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally)
         {
             TextMatch(match = match)
         }
@@ -52,8 +54,10 @@ fun MatchComponent(match : Match){
     }
 }
 @Composable
-fun TextMatch(match : Match){
-    Text(text = match.homeTeam.name + " vs " + match.awayTeam.name,
-    fontSize = 25.sp,
-    textAlign = TextAlign.Center)
+fun TextMatch(match : Match) {
+    Text(
+        text = match.homeTeam.name + " vs " + match.awayTeam.name,
+        fontSize = 25.sp,
+        textAlign = TextAlign.Center
+    )
 }
