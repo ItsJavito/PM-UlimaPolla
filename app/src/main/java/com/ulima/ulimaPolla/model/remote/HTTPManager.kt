@@ -13,8 +13,12 @@ class HTTPManager {
             .baseUrl("https://api.football-data.org")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+        val retrofit2 = Retrofit.Builder()
+            .baseUrl("https://script.google.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
         footballService = retrofit.create(FootballService::class.java);
-        googleService = retrofit.create(GoogleService::class.java)
+        googleService = retrofit2.create(GoogleService::class.java)
     }
     //singleton
     companion object{
